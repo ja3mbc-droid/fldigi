@@ -1243,6 +1243,7 @@ void stop_flrig_thread()
 
 void reconnect_to_flrig()
 {
+	if (!flrig_client) return;
 	flrig_client->close();
 	guard_lock flrig_lock(&mutex_flrig);
 	delete flrig_client;
